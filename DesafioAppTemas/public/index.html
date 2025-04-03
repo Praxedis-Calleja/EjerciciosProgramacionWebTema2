@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="estilos.css">
     <meta charset="UTF-8">
     <title>Temas</title>
 </head>
-
 <body>
     <h1>Selecciona tu tema </h1>
     <form id="Form" class="buttons">
@@ -15,12 +13,9 @@
 
         <button type="button" data-type="2">2</button>
 
-
         <button type="button" data-type="3">3</button>
 
-
         <button type="button" data-type="4">4</button>
-
 
     </form>
     <div id="Container"></div>
@@ -29,12 +24,8 @@
         document.querySelectorAll("#Form button").forEach(button => {
           button.addEventListener("click", async (event) => {
             const type = event.target.getAttribute("data-type");
-            
-          
             const response = await fetch(`/temas/${type}`);
             const temas = await response.json();
-    
-    
             const contenedor = document.getElementById("Container"); 
             if (temas.error) {
               contenedor.innerHTML = "<h2>Tema no encontrado</h2>"; //si no se recupera el contenido HTML de un elemento.

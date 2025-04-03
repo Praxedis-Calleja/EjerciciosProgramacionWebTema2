@@ -15,12 +15,9 @@
 
         <button type="button" data-type="Pescado">🐟</button>
 
-
         <button type="button" data-type="Camaron">🦐</button>
 
-
         <button type="button" data-type="Salmon">🐠</button>
-
 
     </form>
     <div id="Container"></div>
@@ -29,12 +26,8 @@
         document.querySelectorAll("#Form button").forEach(button => {
           button.addEventListener("click", async (event) => {
             const type = event.target.getAttribute("data-type").toLowerCase();
-            
-          
             const response = await fetch(`/receta/${type}`);
             const receta = await response.json();
-    
-    
             const contenedor = document.getElementById("Container"); 
             if (receta.error) {
               contenedor.innerHTML = "<h2>Receta no encontrada</h2>"; //si no se recupera el contenido HTML de un elemento.
